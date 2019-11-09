@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tudo sobre Google Glass</title>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+</head>
+<script language="JavaScript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('cQtd').value);
+        tot = qtd * 1500;
+        document.getElementById('cTot').value = tot;
+    }
+</script>
+<body>
+<div id="interface">
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Google Glass</h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+        <img id="icone" src="_imagens/contato.png" width="200" height="121">
+
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul type="circle">
+                <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png') "><a href=" specs.html">Especificações</a></li>
+                <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png') "><a href="fotos.html">Fotos</a></li>
+                <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png') "><a href="multimidia.html">Multimídia</a></li>
+                <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png') "><a href="fale-conosco.html">Fale conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="corpo-full">
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+                <hgroup>
+                    <h3>Fale Conosco > Contato</h3>
+                    <h1>Formulário de Contato</h1>
+                    <h2>Por Bruno Santos</h2>
+                    <h3 class="direita">Atualizado em 02/Julho/2019</h3>
+                </hgroup>
+            </header>
+
+
+            <form method="post" id="fContato" action="mailto:deltafid@gmail.com" oninput="calc_total();">
+                <fieldset id="usuario">
+                    <legend>Identificação do Usuário</legend>
+                    <p><label for="cNome">Nome:</label> <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"/></p>
+                    <p><label for="cSenha">Senha:</label> <input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+                    <p><label for="cMail">E-mail:</label> <input type="email" name="tMail" id="cMail" size="20" maxlength="40" /></p>
+                    <fieldset id="sexo"><legend>Sexo</legend>
+                        <input type="radio" name="tSexo" id="cMasc" checked/> <label for="cMasc">Masculino</label><br/>
+                        <input type="radio" name="tSexo" id="cFem"/> <label for="cFem">Feminino</label>
+                    </fieldset>
+                    <p><label for="cNasc">Data de Nascimento:</label> <input type="date" name="tNasc" id="cNasc"></p>
+                </fieldset>
+
+                <fieldset id="endereco">
+                    <legend>Endereço do Usuário</legend>
+                    <p><label for="cRua">Logradouro:</label> <input type="text" name="tRua" id="cRua" size="13" maxlength="80" placeholder="Rua, Av, Trav, ..."/></p>
+                    <p><label for="cNum">Número:</label> <input type="number" name="tNum" id="cNum" min="0" max="99999"></p>
+                    <p><label  for="cEst">Estado:</label>
+                    <select name="tEst" id="cEst">
+
+                        <optgroup label="Região Sudeste">
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="SP" selected>São Paulo</option>
+                            <option value="MG">Minas Gerais</option>
+                        </optgroup>
+
+                        <optgroup label="Região Nordeste">
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piaui</option>
+                            <option value="RS">Bahia</option>
+                        </optgroup>
+
+                    </select></p>
+                    <p><label  for="cCid">Cidade:</label>
+                    <input type="text" name="tCid" id="cCid" maxlength="40" size="20" placeholder="Sua Cidade" list="cidades"/></p>
+                    <datalist id="cidades">
+                        <option value="Rio de Janeiro"></option>
+                        <option value="Nova Iguaçu"></option>
+                        <option value="Volta Redonda"></option>
+                    </datalist>
+
+                </fieldset>
+
+                <fieldset id="mensagem">
+                    <legend>Mensagem do Usuário</legend>
+                    <p><label for="cUrg">Grau de Urgência:</label>
+                    Mín<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"/>Máx</p>
+                    <p><label for="cMsg">Mensagem:</label>
+                    <textarea name="tMsg" id="cMsg" cols="35" rows="5" placeholder="Deixe aqui sua Mensagem"></textarea></p>
+                </fieldset>
+
+                <fieldset id="pedido">
+                <legend>>Quero um Google Glass</legend>
+                     <p><input type="checkbox" name="tPed" id="cPed" checked/>
+                     <label for="cPed">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                    <p><label for="cCor">Cor:</label>
+                    <input type="color" name="tCor" id="cCor" value="#0000FF"/></p>
+                    <p><label for="cQtde">Quantidade:</label>
+                    <input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"/></p>
+                    <p><label for="cTot">Preço Total: R$</label>
+                    <input type="text" name="tTot" id="cTot" placeholder="Total a Pagar" readonly/></p>
+                </fieldset>
+
+
+
+                <input type="image" name="tEnviar" src="_imagens/botao-enviar.png"/>
+            </form>
+
+            <form method="post" target="pagseguro"  
+    action="https://pagseguro.uol.com.br/v2/checkout/payment.html">  
+              
+            <!-- Campos obrigatórios -->  
+            <input name="receiverEmail" type="hidden" value="deltafid@gmail.com">  
+            <input name="currency" type="hidden" value="BRL">  
+      
+            <!-- Itens do pagamento (ao menos um item é obrigatório) -->  
+            <input name="itemId1" type="hidden" value="0001">  
+            <input name="itemDescription1" type="hidden" value="Notebook Prata">  
+            <input name="itemAmount1" type="hidden" value="24300.00">  
+            <input name="itemQuantity1" type="hidden" value="1">  
+            <input name="itemWeight1" type="hidden" value="1000">  
+            <input name="itemId2" type="hidden" value="0002">  
+            <input name="itemDescription2" type="hidden" value="Notebook Rosa">  
+            <input name="itemAmount2" type="hidden" value="25600.00">  
+            <input name="itemQuantity2" type="hidden" value="2">  
+            <input name="itemWeight2" type="hidden" value="750">  
+      
+            <!-- Código de referência do pagamento no seu sistema (opcional) -->  
+            <input name="reference" type="hidden" value="REF1234">  
+              
+            <!-- Informações de frete (opcionais) -->  
+            <input name="shippingType" type="hidden" value="1">  
+            <input name="shippingAddressPostalCode" type="hidden" value="01452002">  
+            <input name="shippingAddressStreet" type="hidden" value="Rua Bom Jesus">  
+            <input name="shippingAddressNumber" type="hidden" value="163">  
+            <input name="shippingAddressComplement" type="hidden" value="5o andar">  
+            <input name="shippingAddressDistrict" type="hidden" value="Centro">  
+            <input name="shippingAddressCity" type="hidden" value="Piaui">  
+            <input name="shippingAddressState" type="hidden" value="PI">  
+            <input name="shippingAddressCountry" type="hidden" value="BRA">  
+      
+            <!-- Dados do comprador (opcionais) -->  
+            <input name="senderName" type="hidden" value="José Comprador">  
+            <input name="senderAreaCode" type="hidden" value="11">  
+            <input name="senderPhone" type="hidden" value="56273440">  
+            <input name="senderEmail" type="hidden" value="falecomrosangela287@gmail.com">  
+
+            <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+           <form>
+           <div class="g-recaptcha" data-sitekey="6LeBALsUAAAAAMNXEEkkOvEYHo589IDDfMKVeb2s"></div>
+             <!-- submit do form (obrigatório) -->  
+            <input alt="Pague com PagSeguro" name="submit"  type="image"  
+            src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/pagamentos/120x53-pagar.gif"/> 
+            </form>
+              
+    </form> 
+
+
+        </article>
+    </section>
+
+    <footer id="rodape">
+        <p>Copyright &copy; 2019 - by Bruno Santos </br>
+            <a href="https://www.facebook.com/bruno.dossantossilva.921" target="_blank">Facebook</a>
+            | <a href="https://instagram.com/brunosantosoficial_1996" target="_blank">Instagram</a></p>
+    </footer>
+</div>
+</body>
+</html>
